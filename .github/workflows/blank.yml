@@ -23,3 +23,6 @@ jobs:
         run: |
           ls -la
           printenv
+      - name: build
+        run: |
+          g++ main.cpp -o main.exe
