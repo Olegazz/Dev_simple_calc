@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_cpp:
+  build_cpp_win:
     runs-on: windows-latest
 
     steps:
@@ -33,3 +33,47 @@ jobs:
           name: cpp_app
           path: main.exe
           retention-days: 5 
+
+  build_cpp_lin:
+      runs-on: ubuntu-latest
+
+      steps:
+
+        - name: ls
+          run: ls
+        - uses: actions/checkout@v3
+        - name: env report
+          run: |
+            ls 
+            printenv
+        - name: build
+          run: |
+            g++ main.cpp -o main.o
+        - name: Upload a Build Artifact
+          uses: actions/upload-artifact@v3.1.2
+          with:
+            name: cpp_app
+            path: main.o
+            retention-days: 5 
+            
+  build_cpp_mac:
+      runs-on: macos-latest
+
+      steps:
+
+        - name: ls
+          run: ls
+        - uses: actions/checkout@v3
+        - name: env report
+          run: |
+            ls 
+            printenv
+        - name: build
+          run: |
+            g++ main.cpp -o main.o
+        - name: Upload a Build Artifact
+          uses: actions/upload-artifact@v3.1.2
+          with:
+            name: cpp_app
+            path: main.o
+            retention-days: 5 
