@@ -5,10 +5,10 @@ int main() {
     char op;
     double num1, num2;
 
-    cout << "Введите оператор (+, -, *, /): ";
+    cout << "Choose operator (+, -, *, /): ";
     cin >> op;
 
-    cout << "Введите два числа: " << endl;
+    cout << "Add two numbers: " << endl;
     cin >> num1 >> num2;
 
     switch(op) {
@@ -26,14 +26,14 @@ int main() {
 
         case '/':
             if (num2 == 0)
-                cout << "Ошибка! Деление на ноль.";
+                cout << "Error";
             else
                 cout << num1 << " / " << num2 << " = " << num1/num2;
             break;
 
         default:
             // Неправильный оператор
-            cout << "Ошибка! Вы ввели неправильный оператор.";
+            cout << "Error.";
             break;
     }
 
