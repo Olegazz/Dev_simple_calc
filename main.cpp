@@ -36,6 +36,7 @@ int main() {
             cout << "Error.";
             break;
     }
+    system("pause");
 
     return 0;
 }
