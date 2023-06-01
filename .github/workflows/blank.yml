@@ -12,7 +12,7 @@ on:
 
 jobs:
   build_cpp:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
 
@@ -25,7 +25,7 @@ jobs:
           printenv
       - name: build
         run: |
-          g++ main.cpp -o main.exe
+          cl /EHsc main.cpp
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
