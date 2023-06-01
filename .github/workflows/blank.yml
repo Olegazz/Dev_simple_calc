@@ -16,11 +16,11 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
       - name: build
         run: |
-          cl/EHsc main.cpp
+          cl /EHsc main.cpp
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
-          name: main_win
+          name: cpp_app
           path: main.exe
           retention-days: 5
     
