@@ -1,31 +1,41 @@
 #include <iostream>
+using namespace std;
 
-int main(){
-    int a = 0;
-    int b = 0;
-    char operation;
-    std::cout << "Enter first number: ";
-    std::cin >> a;
-    std::cout << "Enter second number: ";
-    std::cin >> b;
-    std::cout << "Enter operation: ";
-    std::cin >> operation;
+int main() {
+    char op;
+    double num1, num2;
 
-    switch (operation){
-        case '-':
-            std::cout << "a - b = " << a - b <<'\n';
-            break;
+    cout << "Введите оператор (+, -, *, /): ";
+    cin >> op;
+
+    cout << "Введите два числа: " << endl;
+    cin >> num1 >> num2;
+
+    switch(op) {
         case '+':
-            std::cout << "a + b = " << a + b << '\n';
+            cout << num1 << " + " << num2 << " = " << num1+num2;
             break;
+
+        case '-':
+            cout << num1 << " - " << num2 << " = " << num1-num2;
+            break;
+
         case '*':
-            std::cout << "a * b = " << a * b << '\n';
+            cout << num1 << " * " << num2 << " = " << num1*num2;
             break;
+
         case '/':
-            std::cout << "a / b = " << a / b << '\n';
+            if (num2 == 0)
+                cout << "Ошибка! Деление на ноль.";
+            else
+                cout << num1 << " / " << num2 << " = " << num1/num2;
             break;
+
         default:
-            std::cout << "Error\n";
+            // Неправильный оператор
+            cout << "Ошибка! Вы ввели неправильный оператор.";
+            break;
     }
+
     return 0;
 }

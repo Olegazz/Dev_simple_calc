@@ -1,3 +1,7 @@
 # ninja log v5
 0	515	7073426596262422	CMakeFiles/simple_calc.dir/main.cpp.obj	85fc5adf321c0622
 518	737	7073426598392436	simple_calc.exe	a13783b56a2872
+3	1142	7073525415694047	CMakeFiles/simple_calc.dir/main.cpp.obj	85fc5adf321c0622
+1143	1464	7073525418884041	simple_calc.exe	a13783b56a2872
+2	339	7073526487231593	CMakeFiles/simple_calc.dir/main.cpp.obj	85fc5adf321c0622
+339	521	7073526488991257	simple_calc.exe	a13783b56a2872
