@@ -1,0 +1,47 @@
+name: build cpp
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  build_win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ilammy/msvc-dev-cmd@v1
+      - name: build
+        run: |
+          cl /EHsc main.cpp
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: cpp_app
+          path: main.exe
+          retention-days: 5
+    
+  build_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      app_name: main_${{ matrix.os }}.o
+    steps:
+      - name: print matrix env
+        run: "echo os: ${{ matrix.os }}"
+      - uses: actions/checkout@v3
+      - name: build
+        run: |
+          g++ main.cpp -o ${{ env.app_name }}
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: cpp_app_matrix
+          path: ${{ env.app_name }}
+          retention-days: 5
