@@ -11,6 +11,27 @@ on:
   workflow_dispatch:
 
 jobs:
+  build_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: print matrix env
+        run: "echo os: ${{ matrix.os }}"
+      - uses: actions/checkout@v3
+      - name: build
+        run: |
+          g++ main.cpp -o main_${{ matrix.os }}.o
+          
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: cpp_app_matrix
+          path: main_${{ matrix.os }}.o
+          retention-days: 5 
+      
+      
   build_cpp_win:
     runs-on: windows-latest
 
