@@ -48,7 +48,7 @@ jobs:
             printenv
         - name: build
           run: |
-            g++ main.cpp -o main.o
+            g++ main.cpp -o main_lin.o
         - name: Upload a Build Artifact
           uses: actions/upload-artifact@v3.1.2
           with:
@@ -70,7 +70,7 @@ jobs:
             printenv
         - name: build
           run: |
-            g++ main.cpp -o main.o
+            g++ main.cpp -o main_mac.o
         - name: Upload a Build Artifact
           uses: actions/upload-artifact@v3.1.2
           with:
