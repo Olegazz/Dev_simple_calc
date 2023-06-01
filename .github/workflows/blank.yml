@@ -9,6 +9,21 @@ on:
   workflow_dispatch:
 
 jobs:
+  build_win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ilammy/msvc-dev-cmd@v1
+      - name: build
+        run: |
+          cl/EHsc main.cpp
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: main_win
+          path: main.exe
+          retention-days: 5
+    
   build_matrix:
     strategy:
       matrix:
