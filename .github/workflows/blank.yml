@@ -1,0 +1,25 @@
+
+
+name: build cpp
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  build_cpp:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: ls
+        run: ls -la
+      - uses: actions/checkout@v3
+      - name: env report
+        run: |
+          ls -la
+          printenv
