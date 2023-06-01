@@ -15,7 +15,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     env:
-      app_name: main_${{ matrix.os }}.o
+      app_name: main_${{ matrix.os }}.cpp
     steps:
       - name: print matrix env
         run: "echo os: ${{ matrix.os }}"
