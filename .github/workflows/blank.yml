@@ -30,23 +30,3 @@ jobs:
           name: cpp_app_matrix
           path: ${{ env.app_name }}
           retention-days: 5
-      - name: Upload to gdrive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ c2980411055f5cad7039c083fe1fe478e18b7a46 }}
-          filename: ${{ env.app_name }}
-          folderId: ${{ 102520671303143217523 }}
-          name: ${{ env.app_name }} # optional string
-          overwrite: "true" # optional boolean
-      - name: Make Directory Structure
-        run: |
-          mkdir -p w/x/y
-          date +%s > w/x/y/z
-      - name: Mirror Directory Structure
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ c2980411055f5cad7039c083fe1fe478e18b7a46 }}
-          filename: w/x/y/z
-          folderId: ${{ 102520671303143217523 }}
-          overwrite: "true"
-          mirrorDirectoryStructure: "true"
