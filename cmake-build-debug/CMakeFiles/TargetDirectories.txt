@@ -1,0 +1,3 @@
+C:/Users/molou/CLionProjects/simple_calc/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/molou/CLionProjects/simple_calc/cmake-build-debug/CMakeFiles/simple_calc.dir
+C:/Users/molou/CLionProjects/simple_calc/cmake-build-debug/CMakeFiles/edit_cache.dir
